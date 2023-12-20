@@ -18,6 +18,9 @@ const getUsers = async (req, res) => {
 
 const Register = async (req, res) => {
   const { name, email, password, confPassword } = req.body;
+  const userSnapshot = await Users.where('email', '==', email).get();
+    if (!userSnapshot.empty) return res.status(404).json({ msg: "Email sudah terdaftar" });
+
   if (password !== confPassword) return res.status(400).json({ msg: "Password dan Confirm Password tidak cocok" });
 
   try {
