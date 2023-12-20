@@ -1,4 +1,4 @@
-# CC
+# CLOUD COMPUTING
 
 ## Tech used ##
 Project is created with:
